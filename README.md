@@ -18,11 +18,11 @@ Binary packages can be set as runtime or build time dependencies. See [Defining 
 
 To add core/dep as a dependency, you can add one of the following to your plan file.
 
-##### Buildtime Dependency
+#### Buildtime Dependency
 
 > pkg_build_deps=(core/dep)
 
-##### Runtime dependency
+#### Runtime dependency
 
 > pkg_deps=(core/dep)
 
@@ -34,24 +34,22 @@ To install this plan, you should run the following commands to first install, an
 
 ``hab pkg install core/dep --binlink``
 
-will add the following binaries to the PATH:
+will add the following binary to the PATH:
 
-* TODO - Copy the binlink output and then run ``bins``
-* TODO - Add binary
-* TODO - Add binary
+* /bin/dep
 
 For example:
 
 ```bash
 $ hab pkg install core/dep --binlink
-TODO: ADD THE OUTPUT HERE
+» Installing core/dep
+☁ Determining latest version of core/dep in the 'stable' channel
+→ Found newer installed version (core/dep/0.5.0/20200819142056) than remote version (core/dep/0.5.0/20200404012129)
+→ Using core/dep/0.5.0/20200819142056
+★ Install of core/dep/0.5.0/20200819142056 complete with 0 new packages installed.
+» Binlinking dep from core/dep/0.5.0/20200819142056 into /bin
+★ Binlinked dep from core/dep/0.5.0/20200819142056 to /bin/dep
 ```
-
-##### Additional Steps
-
-TODO: ADD OR DELETE THIS SECTION AS NEEDED 
-
-To use core/dep as a stand alone binary, you must configure ...
 
 #### Using an example binary
 
@@ -61,5 +59,23 @@ You can now use the binary as normal.  For example:
 
 ```bash
 $ dep --help
-TODO:  ADD SOME OUTPUT HERE, BUT NO MORE THAN 10-15 lines...
+Dep is a tool for managing dependencies for Go projects
+
+Usage: "dep [command]"
+
+Commands:
+
+  init     Set up a new Go project, or migrate an existing one
+  status   Report the status of the project's dependencies
+  ensure   Ensure a dependency is safely vendored in the project
+  version  Show the dep version information
+  check    Check if imports, Gopkg.toml, and Gopkg.lock are in sync
+
+Examples:
+  dep init                               set up a new project
+  dep ensure                             install the project's dependencies
+  dep ensure -update                     update the locked versions of all dependencies
+  dep ensure -add github.com/pkg/errors  add a dependency to the project
+
+Use "dep help [command]" for more information about a command.
 ```
