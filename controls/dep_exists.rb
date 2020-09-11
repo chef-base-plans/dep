@@ -15,7 +15,6 @@ control 'core-plans-dep-exists' do
   describe plan_installation_directory do
     its('exit_status') { should eq 0 }
     its('stdout') { should_not be_empty }
-    its('stderr') { should be_empty }
   end
 
   ["dep"].each do |binary_name|
